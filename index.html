@@ -5,51 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto_tarea_gestor</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <header>
-        <nav>
-           <a href=""></a>
-           <a href=""></a>
-           <a href=""></a>
-           <a href=""></a>
-           <a href=""></a>
+        
+        <img src="assets/img/logo.png" alt="LogoNav">
+        <nav>            
+           <a href="">INICIO</a>
+           <a href="">Productos</a>
+           <a href="">Preguntas Frecuentes</a>
+           <a href="">Contactanos</a>
+           
             
         </nav>
     </header>
 
+
     <main>
+        <h1>Gestor de Tareas</h1>
         <form action="">
             <label for="descripcion">Descripción:</label>  
-<textarea id="descripcion" required></textarea>  
+            <textarea id="descripcion" required></textarea>  
  
-<label for="prioridad">Prioridad:</label>  
-<select id="prioridad" required>  
-    <option value="">Seleccionar...</option>  
-    <option value="alta">Alta</option>  
-    <option value="media">Media</option>  
-    <option value="baja">Baja</option>  
-</select>  
- 
-<label for="fecha">Fecha límite:</label>  
-<input type="date" id="fecha" required>  
- 
-<button type="submit">Agregar Tarea</button>  
+            <label for="prioridad">Prioridad:</label>  
+            <select id="prioridad" required>  
+                <option value="">Seleccionar...</option>  
+                <option value="alta">Alta</option>  
+                <option value="media">Media</option>  
+                <option value="baja">Baja</option>  
+            </select>  
+            
+            <label for="fecha">Fecha límite:</label> 
+            <section id="menu_"> 
+                <input type="date" id="fecha" required>  
+        
+                <button type="submit">Agregar Tarea</button>  
+            </section>
         </form>
+        <section>
+            <div class="columna" id="en-progreso">  
+                <h3>Pendientes <span class="contador">0</span></h3>  
+                <div class="tareas-container"></div>  
+            </div>
 
-        <div class="columna" id="en-progreso">  
-    <h3>En Progreso <span class="contador">0</span></h3>  
-    <div class="tareas-container"></div>  
-</div>  
+            <div class="columna" id="en-progreso">  
+                <h3>En Progreso <span class="contador">0</span></h3>  
+                <div class="tareas-container"></div>  
+            </div>  
  
-<div class="columna" id="completadas">  
-    <h3>Completadas <span class="contador">0</span></h3>  
-    <div class="tareas-container"></div>  
-</div>  
+            <div class="columna" id="completadas">  
+                <h3>Completadas <span class="contador">0</span></h3>  
+                <div class="tareas-container"></div>  
+            </div>  
+        </section>
+        
     </main>
 
     <footer>
-
+        <p>
+           
+        
+        </p>
     </footer>
 </body>
 </html>
