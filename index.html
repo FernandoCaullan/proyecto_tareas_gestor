@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto_tarea_gestor</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+           <a href=""></a>
+           <a href=""></a>
+           <a href=""></a>
+           <a href=""></a>
+           <a href=""></a>
+            
+        </nav>
+    </header>
+
+    <main>
+        <form action="">
+            <label for="descripcion">Descripción:</label>  
+<textarea id="descripcion" required></textarea>  
+ 
+<label for="prioridad">Prioridad:</label>  
+<select id="prioridad" required>  
+    <option value="">Seleccionar...</option>  
+    <option value="alta">Alta</option>  
+    <option value="media">Media</option>  
+    <option value="baja">Baja</option>  
+</select>  
+ 
+<label for="fecha">Fecha límite:</label>  
+<input type="date" id="fecha" required>  
+ 
+<button type="submit">Agregar Tarea</button>  
+        </form>
+
+        <div class="columna" id="en-progreso">  
+    <h3>En Progreso <span class="contador">0</span></h3>  
+    <div class="tareas-container"></div>  
+</div>  
+ 
+<div class="columna" id="completadas">  
+    <h3>Completadas <span class="contador">0</span></h3>  
+    <div class="tareas-container"></div>  
+</div>  
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
