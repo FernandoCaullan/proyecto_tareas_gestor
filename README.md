@@ -5,7 +5,7 @@
 
 ## Funcionalidades
 * Crear tareas
-* Mover y asignar importancia.
+* Mover y asignar segun importancia.
 * Actualizar estados de tareas por proceso
 * Eliminar tareas
 
