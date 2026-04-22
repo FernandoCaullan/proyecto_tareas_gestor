@@ -21,10 +21,22 @@ function guardarTareas(tareas) {
   localStorage.setItem("tareas", JSON.stringify(tareas));
 }
 
+// ======= CONTADORES =======
+function actualizarContadores() {
+  document.getElementById("count-pendiente").textContent =
+    colPendiente.querySelectorAll(".card").length;
+
+  document.getElementById("count-proceso").textContent =
+    colProceso.querySelectorAll(".card").length;
+
+  document.getElementById("count-finalizado").textContent =
+    colFinalizado.querySelectorAll(".card").length;
+}
+
 // ======= CREAR TARJETA =======
 function crearCard(tarea) {
   const card = document.createElement("div");
-  card.classList.add("card", tarea.prioridad);
+  card.classList.add("card", tarea.prioridad, tarea.estado);
   card.setAttribute("draggable", true);
   card.dataset.id = tarea.id;
 
@@ -32,31 +44,33 @@ function crearCard(tarea) {
     <p><strong>${tarea.descripcion}</strong></p>
     <p>Prioridad: ${tarea.prioridad}</p>
     <p>Fecha: ${tarea.fecha}</p>
-
     <button class="btn-eliminar">❌ Eliminar</button>
   `;
 
   // ===== DRAG =====
   activarDrag(card);
 
-  // ===== ELIMINAR SOLO BOTÓN =====
+  // ===== ELIMINAR =====
   const btnEliminar = card.querySelector(".btn-eliminar");
 
-     btnEliminar.addEventListener("click", (e) => {
-  e.stopPropagation();
+  btnEliminar.addEventListener("click", (e) => {
+    e.stopPropagation();
 
-  const confirmar = confirm("¿Seguro que quieres eliminar esta tarea?");
+    const confirmar = confirm("¿Seguro que quieres eliminar esta tarea?");
 
-  if (confirmar) {
-    eliminarTarea(tarea.id);
-    card.remove();
-  }
-});
+    if (confirmar) {
+      eliminarTarea(tarea.id);
+      card.remove();
+      actualizarContadores(); // 👈 actualizar
+    }
+  });
 
   // ===== INSERTAR SEGÚN ESTADO =====
   if (tarea.estado === "pendiente") colPendiente.appendChild(card);
   if (tarea.estado === "proceso") colProceso.appendChild(card);
   if (tarea.estado === "finalizado") colFinalizado.appendChild(card);
+
+  actualizarContadores(); // 👈 actualizar al crear
 }
 
 // ======= CREAR TAREA =======
@@ -99,7 +113,7 @@ function activarDrag(card) {
 
 // ======= DROP =======
 columnas.forEach(col => {
-  col.addEventListener("dragover", (e) => e.preventDefault());
+  col.addEventListener("dragover", e => e.preventDefault());
 
   col.addEventListener("drop", () => {
     if (!tareaArrastrada) return;
@@ -110,12 +124,23 @@ columnas.forEach(col => {
     const tareas = obtenerTareas();
 
     const tarea = tareas.find(t => t.id == id);
+    if (!tarea) return;
 
-    if (col.id === "pendiente") tarea.estado = "pendiente";
-    if (col.id === "proceso") tarea.estado = "proceso";
-    if (col.id === "finalizado") tarea.estado = "finalizado";
+    // actualizar estado
+    const estados = {
+      pendiente: "pendiente",
+      proceso: "proceso",
+      finalizado: "finalizado"
+    };
+
+    tarea.estado = estados[col.id];
+
+    // actualizar clase visual
+    tareaArrastrada.classList.remove("pendiente", "proceso", "finalizado");
+    tareaArrastrada.classList.add(tarea.estado);
 
     guardarTareas(tareas);
+    actualizarContadores(); // 👈 actualizar
   });
 });
 
@@ -130,4 +155,5 @@ function eliminarTarea(id) {
 document.addEventListener("DOMContentLoaded", () => {
   const tareas = obtenerTareas();
   tareas.forEach(tarea => crearCard(tarea));
+  actualizarContadores(); // 👈 importante
 });

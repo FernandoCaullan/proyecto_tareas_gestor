@@ -6,12 +6,13 @@
     <title>Proyecto_tarea_gestor</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    
+    <link rel="icon" href="assets/img/logo.jpg">
 </head>
 <body>
     <header>
         
-        <img id="logo" src="assets/img/logo.png" alt="LogoNav">
+        <img id="logo" src="assets/img/logo.jpg" alt="LogoNav">
+        <p>Gestor de Tareas</p>
         <nav>            
            <a href="#logo">INICIO</a>
            <a href="#formulario">Agregar Tareas</a>
@@ -43,20 +44,21 @@
                 <button id="btnAgregar" type="submit">Agregar Tarea</button>  
             </section>
         </form>
+
         <section class="container">
             
             <div class="board">
             
                 <div class="column" id="pendiente" >
-                    <h2>Pendientes</h2>
+                    <h2>Pendientes (<span id="count-pendiente">0</span>)</h2>
                 </div>
 
                 <div class="column" id="proceso" >
-                    <h2>En proceso</h2>
+                    <h2>En progreso(<span id="count-proceso">0</span>)</h2>
                 </div>
 
                 <div class="column" id="finalizado">
-                    <h2>Finalizado</h2>
+                    <h2>Finalizado (<span id="count-finalizado">0</span>)</h2>
                 </div>
         
             </div>
@@ -67,10 +69,16 @@
     </main>
 
     <footer id="piepagina">
-        <p>
-           
         
-        </p>
+    <p>📬 Contacto</p>
+
+    <p>📧 Email: fcaullan2022@alu.uct.cl</p>
+    <p>📱 Tel: +56 9 323123213232331</p>
+
+    <p>📍 Chile</p>
+
+    <p class="copy">© 2026 Gestor de Tareas</p> 
+        
     </footer>
 <script src="assets/js/script.js"></script>
 </body>

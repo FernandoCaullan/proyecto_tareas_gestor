@@ -62,9 +62,20 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #7c3aed;
+  color:white;
  
 }
+/* =========================
+    NAV
+    ===================== */
 
+a{
+    color:white
+}
+a:hover {
+    background-color: #2563eb;
+    opacity: 0.7;
+}
 /* =========================
    MAIN
 ========================= */
@@ -138,9 +149,22 @@ label {
   padding: var(--espacio-sm);
   border-radius: 10px;
   min-height: 300px;
+ 
 }
-
-
+#pendiente{
+ border: 4px var(--color-pendiente) solid;
+ 
+}
+#proceso{
+ border: 4px var(--color-progreso) solid;
+}
+#finalizado{
+ border: 4px var(--color-completado) solid;
+}
+.column h2{
+    background-color: white;
+    border-radius: 2px;
+}
 /* =========================
    CARDS
 ========================= */
@@ -151,17 +175,43 @@ label {
   border-radius: 6px;
   cursor: grab;
   border-left: 5px solid transparent;
+  margin: var(--espacio-md)
 }
 
 /* PRIORIDADES */
-.card.alta {
-  border-left-color: red;
+.card.pendiente {
+  border-left: 5px solid #3b82f6;
+}
+.card.pendiente:hover{
+    opacity: 0.8;
+}
+.card.proceso {
+  border-left: 5px solid #f59e0b;
+}
+.card.proceso:hover{
+    opacity: 0.8;
+}
+.card.finalizado {
+  border-left: 5px solid #10b981;
+  
+}
+.card.card.finalizado:hover{
+    opacity: 0.8;
 }
 
-.card.media {
-  border-left-color: orange;
+/* ==================
+footer
+================*/
+footer{
+    width: 100%;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #7c3aed;
+  color: white;
+  text-align: center;
 }
+#logo {
+ width: 60px;
+ height: auto;
 
-.card.baja {
-  border-left-color: green;
 }
