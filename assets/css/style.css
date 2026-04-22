@@ -1,85 +1,167 @@
-
-/* Variables Profesor */
+/* =========================
+   VARIABLES
+========================= */
 :root {
+  --color-primario: #2563eb;
+  --color-secundario: #7c3aed;
+  --color-terciario: #10b981;
 
-/* Colores principales */
+  --color-pendiente: #3b82f6;
+  --color-progreso: #f59e0b;
+  --color-completado: #10b981;
 
---color-primario: #2563eb;
+  --fuente-principal: 'Segoe UI', system-ui, sans-serif;
 
---color-secundario: #7c3aed;
-
---color-terciario: #10b981;
-
-/* Colores de estado */  
---color-pendiente: #3b82f6;  
---color-progreso: #f59e0b;  
---color-completado: #10b981;  
- 
-/* Tipografía */  
---fuente-principal: 'Segoe UI', system-ui, sans-serif;  
---tamano-base: 16px;  
- 
-/* Espaciado */  
---espacio-xs: 0.5rem;  
---espacio-sm: 1rem;  
---espacio-md: 1.5rem;  
---espacio-lg: 2rem;  
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 1rem;
+  --espacio-md: 1.5rem;
+  --espacio-lg: 2rem;
 }
+
+/* =========================
+   RESET GENERAL
+========================= */
 * {
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fuente-principal);
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+  background-color: #f4f6f8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+
+/* =========================
+   TITULOS
+========================= */
+h1 {
+  color: var(--color-primario);
+  font-size: 2rem;
+  margin: var(--espacio-md) 0;
+}
+
+h2 {
+  color: var(--color-secundario);
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  width: 100%;
+  padding: var(--espacio-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #7c3aed;
  
 }
 
-body{
-    margin: 0;
-    background-color:#a4e9ee
- 
-}
-h1{
-    color: #2563eb;
-    font-size: 25px;
-}
-h3{
-    color: #7c3aed;
-}
+/* =========================
+   MAIN
+========================= */
 main {
-    margin: 3rem;
-}
-main h1 {
-    text-align: center;
-}
-form label{
-    color:#7c3aed;
-    margin: 0.5rem;
-
-}
-button{
-    height: 3rem;
-    width: 12rem;
-    margin: 2rem;
-}
-header{
-    margin: 1rem;
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-lg);
 }
 
-nav a{
-    margin: 0.5rem;
-    
+/* =========================
+   FORMULARIO
+========================= */
+form {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+  padding: var(--espacio-lg);
+  border: 2px solid var(--color-terciario);
+  border-radius: 10px;
+  background-color: #ffffff;
 }
-form{
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    
+
+label {
+  font-family: var(--fuente-principal);
+  font-weight: bold;
 }
-@media (max-width: 768px) {
-  header {
-    flex-direction: column; /* se apilan */
-    align-items: flex-start;
-  }}
+
+#menu_ {
+  display: flex;
+  gap: var(--espacio-sm);
+}
+
+#menu_ input,
+#menu_ button {
+  flex: 1;
+}
+
+/* BOTÓN */
+#btnAgregar {
+  height: 3rem;
+  background-color: var(--color-terciario);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+#btnAgregar:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   KANBAN
+========================= */
+.board {
+  display: flex;
+  gap: var(--espacio-sm);
+  width: 100%;
+  justify-content: center;
+}
+
+.column {
+  flex: 1;
+  background: #f4f4f4;
+  padding: var(--espacio-sm);
+  border-radius: 10px;
+  min-height: 300px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+.card {
+  background: white;
+  padding: var(--espacio-sm);
+  margin-bottom: var(--espacio-sm);
+  border-radius: 6px;
+  cursor: grab;
+  border-left: 5px solid transparent;
+}
+
+/* PRIORIDADES */
+.card.alta {
+  border-left-color: red;
+}
+
+.card.media {
+  border-left-color: orange;
+}
+
+.card.baja {
+  border-left-color: green;
+}

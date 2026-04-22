@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+
+    body {
+        align-items: flex-start;
+    }
+
+    main > section:last-of-type {
+        flex-direction: column; /* apila columnas */
+        
+    }
+
+    .columna {
+        width: 100%;
+    }
+
+    #menu_ {
+        flex-direction: column; /* input y botón vertical */
+    }
+}

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto_tarea_gestor</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
 </head>
 <body>
     <header>
         
-        <img src="assets/img/logo.png" alt="LogoNav">
+        <img id="logo" src="assets/img/logo.png" alt="LogoNav">
         <nav>            
-           <a href="">INICIO</a>
-           <a href="">Productos</a>
-           <a href="">Preguntas Frecuentes</a>
-           <a href="">Contactanos</a>
+           <a href="#logo">INICIO</a>
+           <a href="#formulario">Agregar Tareas</a>
+           <a href="#piepagina">Contactanos</a>
            
             
         </nav>
@@ -24,7 +24,7 @@
 
     <main>
         <h1>Gestor de Tareas</h1>
-        <form action="">
+        <form id="formulario" >
             <label for="descripcion">Descripción:</label>  
             <textarea id="descripcion" required></textarea>  
  
@@ -40,33 +40,38 @@
             <section id="menu_"> 
                 <input type="date" id="fecha" required>  
         
-                <button type="submit">Agregar Tarea</button>  
+                <button id="btnAgregar" type="submit">Agregar Tarea</button>  
             </section>
         </form>
-        <section>
-            <div class="columna" id="en-progreso">  
-                <h3>Pendientes <span class="contador">0</span></h3>  
-                <div class="tareas-container"></div>  
-            </div>
+        <section class="container">
+            
+            <div class="board">
+            
+                <div class="column" id="pendiente" >
+                    <h2>Pendientes</h2>
+                </div>
 
-            <div class="columna" id="en-progreso">  
-                <h3>En Progreso <span class="contador">0</span></h3>  
-                <div class="tareas-container"></div>  
-            </div>  
- 
-            <div class="columna" id="completadas">  
-                <h3>Completadas <span class="contador">0</span></h3>  
-                <div class="tareas-container"></div>  
-            </div>  
+                <div class="column" id="proceso" >
+                    <h2>En proceso</h2>
+                </div>
+
+                <div class="column" id="finalizado">
+                    <h2>Finalizado</h2>
+                </div>
+        
+            </div>
+        
+  
         </section>
         
     </main>
 
-    <footer>
+    <footer id="piepagina">
         <p>
            
         
         </p>
     </footer>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
